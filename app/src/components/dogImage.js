@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import { getDog } from "../actions";
 
 const DogImage = props => {
+
+  const [timer, setTimer] = useState();
+
   const fetchDog = e => {
     e.preventDefault();
     props.getDog();
   };
+
+  const twoSeconds = e => {
+    e.preventDefault();
+
+    const stopDogs = setInterval(() => {
+      console.log("hello");
+      props.getDog();
+    }, 2000)
+    setTimer(stopDogs)
+  }
+
+  const stopDogs = () => {
+    clearInterval(timer);
+    setTimer(undefined);
+  }
 
   return (
     <>
@@ -20,6 +38,9 @@ const DogImage = props => {
       </div>
 
       <button onClick={fetchDog}>RANDOM DOG IMAGE!!!!1</button>
+      <button onClick={twoSeconds}>2 SANIYEEEEEEE</button>
+      <button onClick={stopDogs}>STOPPPP</button>
+      {/* <button onClick */}
     </>
   );
 };

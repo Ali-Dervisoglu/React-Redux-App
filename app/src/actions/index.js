@@ -13,3 +13,4 @@ export const getDog = () => dispatch => {
       dispatch({ type: FETCH_DOG_FAIL, payload: err.toString() })
     );
 };
+

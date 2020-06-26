@@ -7,7 +7,8 @@ import {
   const initialState = {
     dog: "",
     error: "",
-    isFetching: false
+    isFetching: false,
+    isLooping: false
   };
   
   function reducer(state = initialState, action) {
